@@ -220,10 +220,9 @@ State.prototype = {
     var entry = this.getMemoizedTraceEntry(pos, expr);
     if (!entry) {
       entry = new Trace(this.inputStream, pos, expr, result, this.trace);
+    } else {
+      entry = entry.ensureExpr(expr);
     }
-
-    entry = entry.ensureExpr(expr);
-
     return entry;
   },
 

@@ -78,7 +78,6 @@ Trace.prototype.ensureExpr = function(expr) {
   if (this.expr === expr) {
     return this;
   }
-
   return new Trace(this.inputStream, this.pos, expr, this.succeeded, this.children);
 };
 
