@@ -221,6 +221,7 @@ State.prototype = {
     if (!entry) {
       entry = new Trace(this.inputStream, pos, expr, result, this.trace);
     }
+    entry.ensureExpr(expr);
     return entry;
   },
 

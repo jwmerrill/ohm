@@ -73,6 +73,11 @@ function Trace(inputStream, pos, expr, ans, optChildren) {
   this.succeeded = !!ans;
 }
 
+// Make sure we get the trace entry for the correct corresponding expr
+Trace.prototype.ensureExpr = function(expr) {
+  this.expr = expr;
+};
+
 // A value that can be returned from visitor functions to indicate that a
 // node should not be recursed into.
 Trace.prototype.SKIP = {};
