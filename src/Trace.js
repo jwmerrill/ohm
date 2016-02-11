@@ -75,7 +75,11 @@ function Trace(inputStream, pos, expr, ans, optChildren) {
 
 // Make sure we get the trace entry for the correct corresponding expr
 Trace.prototype.ensureExpr = function(expr) {
-  this.expr = expr;
+  if (this.expr === expr) {
+    return this;
+  }
+
+  return new Trace(this.inputStream, this.pos, expr, this.succeeded, this.children);
 };
 
 // A value that can be returned from visitor functions to indicate that a
